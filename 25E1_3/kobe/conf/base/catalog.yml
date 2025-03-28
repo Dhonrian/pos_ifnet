@@ -2,3 +2,15 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+raw_train_dev:
+    type: pandas.ParquetDataset
+    filepath: data/01_raw/dataset_kobe_dev.parquet
+
+raw_train_prod:
+    type: pandas.ParquetDataset
+    filepath: data/01_raw/dataset_kobe_prod.parquet
+
+dataset_filtered:
+    type: pandas.ParquetDataset
+    filepath: data/04_feature/data_filtered.parquet
