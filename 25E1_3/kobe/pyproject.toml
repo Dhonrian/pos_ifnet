@@ -31,3 +31,6 @@ attr = "kobe.__version__"
 [tool.setuptools.packages.find]
 where = [ "src",]
 namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "eee640b05e4649fa952cb9542ab9c75b"
