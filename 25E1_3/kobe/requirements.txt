@@ -1,7 +1,9 @@
-ipython>=8.10
-jupyterlab>=3.0
-kedro~=0.19.11
+ipython
+jupyterlab
+kedro
 kedro-datasets[pandas]
 notebook
 pyarrow
 pycaret[models,mlops]
+git+https://github.com/pycaret/pycaret.git@master
+kedro-mlflow
