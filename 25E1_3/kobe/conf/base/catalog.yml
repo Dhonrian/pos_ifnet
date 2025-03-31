@@ -14,3 +14,10 @@ raw_train_prod:
 dataset_filtered:
     type: pandas.ParquetDataset
     filepath: data/04_feature/data_filtered.parquet
+
+treinamento_best_model:
+  type: kedro_mlflow.io.models.mlflow_model_tracking_dataset.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
+  save_args:
+    registered_model_name: treinamento_best_model
+

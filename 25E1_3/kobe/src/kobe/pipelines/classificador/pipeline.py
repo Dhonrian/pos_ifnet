@@ -13,5 +13,11 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs=["raw_train_dev"],
             outputs="dataset_filtered",
             tags=["prepare"]
+        ),
+        node(
+            nodes.treinamento_best_model,
+            inputs=["dataset_filtered", "params:session_id"],
+            outputs="treinamento_best_model",
+            tags=["treinamento"]
         )
     ])
