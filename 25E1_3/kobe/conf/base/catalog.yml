@@ -15,9 +15,34 @@ dataset_filtered:
     type: pandas.ParquetDataset
     filepath: data/04_feature/data_filtered.parquet
 
+base_train:
+    type: pandas.ParquetDataset
+    filepath: data/05_model_input/base_train.parquet
+
+base_test:
+    type: pandas.ParquetDataset
+    filepath: data/05_model_input/base_test.parquet
+
 treinamento_best_model:
   type: kedro_mlflow.io.models.mlflow_model_tracking_dataset.MlflowModelTrackingDataset
   flavor: mlflow.sklearn
   save_args:
     registered_model_name: treinamento_best_model
 
+treinamento_logistical_regression:
+  type: kedro_mlflow.io.models.mlflow_model_tracking_dataset.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
+  save_args:
+    registered_model_name: treinamento_logistical_regression
+
+treinamento_decision_tree:
+  type: kedro_mlflow.io.models.mlflow_model_tracking_dataset.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
+  save_args:
+    registered_model_name: treinamento_decision_tree
+
+f1_score_metric:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataset
+  key: f1_score
+  save_args:
+    mode: append
