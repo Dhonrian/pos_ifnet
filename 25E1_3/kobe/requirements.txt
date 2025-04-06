@@ -7,3 +7,4 @@ pyarrow
 pycaret[models,mlops]
 git+https://github.com/pycaret/pycaret.git@master
 kedro-mlflow
+streamlit

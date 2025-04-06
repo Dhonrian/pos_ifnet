@@ -1,5 +1,5 @@
 """
-This is a boilerplate pipeline 'classificador'
+This is a boilerplate pipeline 'data_prep'
 generated using Kedro 0.19.12
 """
 

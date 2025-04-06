@@ -1,5 +1,5 @@
 """
-This is a boilerplate pipeline 'classificador'
+This is a boilerplate pipeline 'training'
 generated using Kedro 0.19.12
 """
 
@@ -8,19 +8,7 @@ from . import nodes
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
-        node(
-            nodes.prepare_dataset,
-            inputs=["raw_train_dev"],
-            outputs="dataset_filtered",
-            tags=["prepare"]
-        ),
-        node(
-            nodes.split_dataset,
-            inputs=["dataset_filtered", "params:session_id", "params:test_size"],
-            outputs=["base_train", "base_test"],
-            tags=["split"]
-        ),
-        node(
+         node(
             nodes.treinamento,
             inputs=["params:model_lr", "base_train", "params:session_id"],
             outputs="treinamento_logistical_regression",
@@ -33,9 +21,15 @@ def create_pipeline(**kwargs) -> Pipeline:
             tags=["treinamento"]
         ),
         node(
-            nodes.get_f1_score,
+            nodes.get_metrics,
             inputs=["treinamento_logistical_regression", "base_test"],
-            outputs="f1_score_metric",
-            tags=["metric"]
+            outputs="base_test_lr_metrics",
+            tags=["metrics"]
+        ),
+        node(
+            nodes.get_metrics,
+            inputs=["treinamento_decision_tree", "base_test"],
+            outputs="base_test_dt_metrics",
+            tags=["metrics"]
         )
     ])
