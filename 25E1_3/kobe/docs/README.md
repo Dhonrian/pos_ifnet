@@ -66,7 +66,7 @@ As colunas utilizadas foram:
 R: As ferramentas citadas facilitam a construção dos pipelines de várias maneiras: 
 - **O Streamlit** ajuda na criação de interfaces para o usuário, assim como na visualização dos dados e resultados. Dessa forma é possível criar tanto dashboards para visualização de dados quanto interfaces para a interação com o modelo.
 - **O MLFlow** permite o rastreamento de experimentos e o gerenciamento de vários modelos. Também é possível registrar as métricas e parâmetros, o que facilita a comparação entre diferentes modelos e versões ao longo do tempo. A integração com o kedro permite o uso do catálogo para melhor manuseio dos dados. Pelo MLFlow é possível também fazer o deploy dos modelos, tornando rápida a troca de versões em produção caso a saúde comece a cair.
-- **O PyCaret** automatiza o processo o fluxo de treinamentos de modelos, o que torna rápido a comparação entre algoritimos e a escolha do melhor modelo.  
+- **O PyCaret** automatiza o processo o fluxo de treinamentos de modelos, o que torna rápido a comparação entre algoritmos e a escolha do melhor modelo.  
 - **O Scikit-Learn** é uma das principais bibliotecas para aprendizado de máquina. Nela existem várias funções para pré-processamento, treinamento, avalição e outras funções que ajudam na construção de modelos.
 
 ## 4 - Artefatos gerados
