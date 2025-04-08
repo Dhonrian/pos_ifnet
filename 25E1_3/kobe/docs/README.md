@@ -103,7 +103,7 @@ R: Utilizando o MLFlow é possível monitorar a saúde do modelo. Caso exista a 
 R: A estratégia reativa consiste em retreinar o modelo quando a performance começa a cair, por exemplo quando o f1_score fica abaixo de um limite. Já a estratégia preditiva consiste em prever quando o modelo pode começar a cair e retreiná-lo antes que isso aconteça, de forma programada a cada X meses ou quando os dados começam a apresentar uma distribuição diferente.
 
 ## 8 - Streamlit
-O Streamlit foi utilizado para criar uma interface em que se pode fazer a inferência de um arremesso. Cada arremesso é adicionado numa figura que pode ser visualizada no GIF. 
+O Streamlit foi utilizado para criar uma interface em que se pode fazer a inferência de um arremesso. Cada arremesso é adicionado em uma figura que pode ser visualizada no GIF. 
 ![Streamlit](/25E1_3/kobe/data/08_reporting/streamlit.gif) 
 
 # Como rodar o projeto
