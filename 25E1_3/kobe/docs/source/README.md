@@ -101,3 +101,19 @@ R: A estratégia reativa consiste em retreinar o modelo quando a performance com
 ## 8 - Streamlit
 O Streamlit foi utilizado para criar uma interface em que se pode fazer a inferencia de um arremesso. Cada arremesso é adicionado numa figura.
 ![Streamlit](/25E1_3/kobe/data/08_reporting/streamlit.gif) 
+
+# Como rodar o projeto
+O projeto foi desenvolvido utilizando o Kedro com python 3.12 e as dependências estão no arquivo `requirements.txt`. Para rodar o projeto é necessário ter o Kedro instalado e o MLFlow. Para isso, basta rodar os seguintes comandos:
+Após instaladas as dependências, basta rodar o seguinte comando para iniciar o projeto:
+```bash
+kedro run
+```
+Após isso, para iniciar o MLFlow, basta rodar o seguinte comando:
+```bash
+mlflow ui --backend-store-uri mlflow_runs   
+```
+O streamlit pode ser iniciado com o seguinte comando:
+```bash
+streamlit streamlit/app.py
+```
+
