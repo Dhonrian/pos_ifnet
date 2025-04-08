@@ -2,7 +2,7 @@
 
 
 # GITHUB
-O projeto está disponível no [github](https://github.com/Dhonrian/pos_ifnet/tree/main/25E1_3/kobe/), toda a documentação se encontra na pasta `docs/`
+O projeto está disponível no github: https://github.com/Dhonrian/pos_ifnet/tree/main/25E1_3/kobe/, toda a documentação e este `README.md` se encontra na pasta `docs/`
 
 ## Dados
 
