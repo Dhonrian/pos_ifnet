@@ -3,7 +3,8 @@ This module contains utility functions for the Kobe pipeline.
 """
 
 from sklearn.metrics import log_loss, f1_score
-import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.metrics import RocCurveDisplay
 
 def get_model_metrics(model, dataset):
     """
@@ -26,3 +27,10 @@ def get_model_metrics(model, dataset):
         key: {'value': val, 'step': 1}
         for key, val in metrics.items()
     }
+
+def plot_auc_roc(y_true, y_proba, title="AUC-ROC Curve"):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    RocCurveDisplay.from_predictions(y_true, y_proba, ax=ax)
+    ax.set_title(title)
+    ax.grid(True)
+    return fig

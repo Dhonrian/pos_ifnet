@@ -19,5 +19,12 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs=["treinamento_logistical_regression", "raw_train_prod"],
             outputs="predictions_metrics",
             tags=["metrics"]
-        )
+        ),
+        node(
+            nodes.generate_roc_auc_plot,
+            inputs=["treinamento_logistical_regression", "raw_train_prod"],
+            outputs="roc_auc_plot",
+            tags=["metrics"]
+        ),
     ])
+
