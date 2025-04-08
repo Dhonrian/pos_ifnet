@@ -6,7 +6,7 @@ O projeto está disponível no [github](https://github.com/Dhonrian/pos_ifnet/tr
 
 ## Dados
 
-Este Projeto análise os arremessos do Kobe Bryant e tenta prever se o arremesso acertou ou não. Os dados utilizados foram retirados do enunciado do projeto e possuem as seguintes colunas:
+Este projeto análisa os arremessos do Kobe Bryant e tenta prever se o arremesso acertou ou não. Os dados utilizados foram retirados do enunciado do projeto e possuem as seguintes colunas:
 
 ```
 action_type
@@ -67,12 +67,12 @@ R: As ferramentas citadas facilitam a construção dos pipelines de várias mane
 - **O Streamlit** ajuda na criação de interfaces para o usuário, assim como na visualização dos dados e resultados. Dessa forma é possível criar tanto dashboards para visualização de dados quanto interfaces para a interação com o modelo.
 - **O MLFlow** permite o rastreamento de experimentos e o gerenciamento de vários modelos. Também é possível registrar as métricas e parâmetros, o que facilita a comparação entre diferentes modelos e versões ao longo do tempo. A integração com o kedro permite o uso do catálogo para melhor manuseio dos dados. Pelo MLFlow é possível também fazer o deploy dos modelos, tornando rápida a troca de versões em produção caso a saúde comece a cair.
 - **O PyCaret** automatiza o processo o fluxo de treinamentos de modelos, o que torna rápido a comparação entre algoritimos e a escolha do melhor modelo.  
-- **O Scikit-Learn** é uma das principais bibliotecas para aprendizado de máquina. Nela existem várias funções pra pré-processamento, treinamento, avalição e outras funções que ajudam na construção de modelos.
+- **O Scikit-Learn** é uma das principais bibliotecas para aprendizado de máquina. Nela existem várias funções para pré-processamento, treinamento, avalição e outras funções que ajudam na construção de modelos.
 
 ## 4 - Artefatos gerados
 Durante a execução do projeto, foram gerados os seguintes artefatos:
- - Na **preparação dos dados** gerou-se o arquivo `dataset_filtered.parquet` que são os dados filtrados sem os valores nulos e com as colunas necessárias para o treinamento do modelo isso. Dos 24.271 arremessos realizados foram mantidos 20.285 para as 6 features selecionadas. Em seguida o dataset foi dividido em treino e teste, gerando os arquivos `base_train.parquet` e `base_test.parquet`.
- - Na fase de **Treinamento** foram gerados pickes dos modelos treinados que são os arquivos `treinamento_logistical_regression.pkl` e `treinamento_decision_tree.pkl`. Esses arquivos são salvos na pasta do mlflow.
+ - Na **preparação dos dados** gerou-se o arquivo `dataset_filtered.parquet` que são os dados filtrados sem os valores nulos e com as colunas necessárias para o treinamento do modelo. Dos 24.271 arremessos realizados foram mantidos 20.285 para as 6 features selecionadas. Em seguida o dataset foi dividido em treino e teste, gerando os arquivos `base_train.parquet` e `base_test.parquet`.
+ - Na fase de **Treinamento** foram gerados arquivos pickle dos modelos treinados que são os arquivos `treinamento_logistical_regression.pkl` e `treinamento_decision_tree.pkl`. Esses arquivos são salvos na pasta do mlflow.
 - A **aplicação** do modelo gerou o `predictions.parquet` que é o arquivo com a saída do modelo, se o arremesso foi convertido ou não. Outro artefato gerado foi um gráfico `roc_auc_lot.png` que mostra a curva ROC do modelo.
 
 
@@ -103,12 +103,11 @@ R: Utilizando o MLFlow é possível monitorar a saúde do modelo. Caso exista a 
 R: A estratégia reativa consiste em retreinar o modelo quando a performance começa a cair, por exemplo quando o f1_score fica abaixo de um limite. Já a estratégia preditiva consiste em prever quando o modelo pode começar a cair e retreiná-lo antes que isso aconteça, de forma programada a cada X meses ou quando os dados começam a apresentar uma distribuição diferente.
 
 ## 8 - Streamlit
-O Streamlit foi utilizado para criar uma interface em que se pode fazer a inferencia de um arremesso. Cada arremesso é adicionado numa figura.
+O Streamlit foi utilizado para criar uma interface em que se pode fazer a inferência de um arremesso. Cada arremesso é adicionado numa figura que pode ser visualizada no GIF. 
 ![Streamlit](/25E1_3/kobe/data/08_reporting/streamlit.gif) 
 
 # Como rodar o projeto
-O projeto foi desenvolvido utilizando o Kedro com python 3.12 e as dependências estão no arquivo `requirements.txt`. Para rodar o projeto é necessário ter o Kedro instalado e o MLFlow. Para isso, basta rodar os seguintes comandos:
-Após instaladas as dependências, basta rodar o seguinte comando para iniciar o projeto:
+O projeto foi desenvolvido utilizando o Kedro com python 3.12 e as dependências estão no arquivo `requirements.txt`. Para rodar o projeto é necessário ter o Kedro instalado e o MLFlow. Para iniciar o projeto:
 
 ```bash
 kedro run
