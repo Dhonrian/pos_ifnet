@@ -1,5 +1,9 @@
 # Kobe - Análise de Dados
 
+
+# GITHUB
+O projeto está disponível no [github](https://github.com/Dhonrian/pos_ifnet/tree/main/25E1_3/kobe/), toda a documentação se encontra na pasta `docs/`
+
 ## Dados
 
 Este Projeto análise os arremessos do Kobe Bryant e tenta prever se o arremesso acertou ou não. Os dados utilizados foram retirados do enunciado do projeto e possuem as seguintes colunas:
@@ -67,7 +71,7 @@ R: As ferramentas citadas facilitam a construção dos pipelines de várias mane
 
 ## 4 - Artefatos gerados
 Durante a execução do projeto, foram gerados os seguintes artefatos:
- - Na **preparação dos dados** gerou-se o arquivo `dataset_filtered.parquet` que são os dados filtrados sem os valores nulos e com as colunas necessárias para o treinamento do modelo. Em seguida o dataset foi dividido em treino e teste, gerando os arquivos `base_train.parquet` e `base_test.parquet`.
+ - Na **preparação dos dados** gerou-se o arquivo `dataset_filtered.parquet` que são os dados filtrados sem os valores nulos e com as colunas necessárias para o treinamento do modelo isso. Dos 24.271 arremessos realizados foram mantidos 20.285 para as 6 features selecionadas. Em seguida o dataset foi dividido em treino e teste, gerando os arquivos `base_train.parquet` e `base_test.parquet`.
  - Na fase de **Treinamento** foram gerados pickes dos modelos treinados que são os arquivos `treinamento_logistical_regression.pkl` e `treinamento_decision_tree.pkl`. Esses arquivos são salvos na pasta do mlflow.
 - A **aplicação** do modelo gerou o `predictions.parquet` que é o arquivo com a saída do modelo, se o arremesso foi convertido ou não. Outro artefato gerado foi um gráfico `roc_auc_lot.png` que mostra a curva ROC do modelo.
 
@@ -117,4 +121,3 @@ O streamlit pode ser iniciado com o seguinte comando:
 ```bash
 streamlit streamlit/app.py
 ```
-
