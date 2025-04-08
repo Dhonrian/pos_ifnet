@@ -83,7 +83,7 @@ Entrando na run `__default__` é possível ver os parâmetros e métricas de cad
 Bem como os artefatos gerados.
 ![MLFlow](/25E1_3/kobe/data/08_reporting/mlflow_artifacts.png)
 
-E as métricas em forma de gráfico.
+E as métricas em forma de gráfico.\
 ![MLFlow](/25E1_3/kobe/data/08_reporting/mlflow_metrics.png)
 
 O modelo escolhido para produção foi o `Logistic Regression` por apresentar métricas melhores que o `Decision Tree`.
@@ -105,6 +105,7 @@ O Streamlit foi utilizado para criar uma interface em que se pode fazer a infere
 # Como rodar o projeto
 O projeto foi desenvolvido utilizando o Kedro com python 3.12 e as dependências estão no arquivo `requirements.txt`. Para rodar o projeto é necessário ter o Kedro instalado e o MLFlow. Para isso, basta rodar os seguintes comandos:
 Após instaladas as dependências, basta rodar o seguinte comando para iniciar o projeto:
+
 ```bash
 kedro run
 ```
