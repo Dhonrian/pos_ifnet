@@ -61,3 +61,9 @@ predictions:
 
 predictions_metrics:
     type: kedro_mlflow.io.metrics.MlflowMetricsHistoryDataset
+
+roc_auc_plot:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/roc_auc_plot.png
