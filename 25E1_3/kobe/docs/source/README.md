@@ -83,7 +83,7 @@ Entrando na run `__default__` é possível ver os parâmetros e métricas de cad
 Bem como os artefatos gerados.
 ![MLFlow](/25E1_3/kobe/data/08_reporting/mlflow_artifacts.png)
 
-E as métricas em forma de gráfico.\
+E as métricas em forma de gráfico.  
 ![MLFlow](/25E1_3/kobe/data/08_reporting/mlflow_metrics.png)
 
 O modelo escolhido para produção foi o `Logistic Regression` por apresentar métricas melhores que o `Decision Tree`.
