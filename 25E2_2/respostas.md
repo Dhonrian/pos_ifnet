@@ -88,4 +88,4 @@ Os passos são:
 - Levando em consideração a dimensionalidade e a relação semântica, o doc2vec seria mais adequado. O TFIDF gera vetores com dimensões altas que até podem ser reduzidas mas que não trazem informações sobre a relação entre os documentos. Como o doc2vec consegue aprender essa relação, os documentos com conteúdo parecido estarão mais próximos no espaço ao agrupá-los. 
 
 ### 20 - Leia o artigo "Introducing our Hybrid lda2vec Algorithm" (https://multithreaded.stitchfix.com/blog/2016/05/27/lda2vec/#topic=38&lambda=1&term=).O algoritmo lda2vec pretende combinar o poder do word2vec com a interpretabilidade do algoritmo LDA. Em qual cenário o autor sugere que há benefícios para utilização deste novo algoritmo?
-- O maior benefício do lda2vec é que ele consegue gerar tópicos mais amigáveis para os humanos, mas também consegue gerar predições que o word2vec popularizou. 
+- O maior benefício do lda2vec é que ele consegue gerar tópicos mais amigáveis para os humanos e que possam se relacionar com outras variáveis como as curtidas do hackernews.  
