@@ -1,3 +1,8 @@
+>[!NOTE]
+>As respostas aqui estão presentes em https://github.com/Dhonrian/pos_ifnet/blob/main/25E2_2/respostas.md
+>Este arquivo foi transformado em pdf e unido com o pdf do notebook ao final. 
+
+
 # Respostas
 
 ### 1- Qual o endereço do seu notebook (colab) executado? Use o botão de compartilhamento do colab para obter uma url.
