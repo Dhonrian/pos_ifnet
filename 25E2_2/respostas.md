@@ -71,7 +71,7 @@
 - ![nuvem de palavras](./assets/wordcloud.png)
 
 ### 17 - Escreva brevemente uma descrição para cada tópico extraído. Indique se você considera o tópico extraído semanticamente consistente ou não. 
-- O **Tópico 0**: mostra palavras relacionadas a banco, mercado, queda, dólar. O que parece indicar ser sobre  notícias sobre ações ou economia. Se tratando de um tópico consistente.
+- O **Tópico 0**: mostra palavras relacionadas a banco, mercado, queda, dólar. O que indica notícias sobre ações ou economia. Se tratando de um tópico consistente.
 - O **Tópico 1** possui palavras do mesmo contexto que remetem a notícias políticas, como: debate, diálogo, tema. Bem como alguns institutos como fgv, cebrap. 
 - O **Tópico 2** também tem palavras relacionadas a mercado mas com um foco empresarial com palavras como: empresa, milhão, trabalho. 
 - O **Tópico 3** é um tópico voltado para jornalismo ou comunicação mostrando palavras como: autor, editora, pág, folha.
@@ -85,9 +85,9 @@ No geral todos os tópicos mostram uma consistências entre os tópicos extraíd
 - O doc2vec é semelhante ao word2vec mas que ao invés de gerar um vetor para cada palavra, gera um vetor para cada documento do corpus. Os passos são semelhantes para gerar os vetores, mas o doc2vec expande o conceito do word2vec ao considerar o contexto de cada palavra em relação ao documento.
 Os passos começam semelhantes com stemming e lematização, entretanto o doc2vec utiliza uma "tag" que representa o documento permitindo que o modelo aprenda a associar as palavras com o documento. 
 Os passos são:
-1 - Pré-processamento com stemming e lematização.
-2 - Criação de tags para cada documento.
-3 - Treinamento de um modelo.
+    1 - Pré-processamento com stemming e lematização.  
+    2 - Criação de tags para cada documento.
+    3 - Treinamento de um modelo.
 
 ### 19 - Em uma versão alternativa desse projeto, optamos por utilizar o algoritmo de K-Médias para gerar os clusters (tópicos). Qual das abordagens (TF-IDF ou Doc2Vec) seria mais adequada como processo de vetorização? Justifique com comentários sobre dimensionalidade e relação semântica entre documentos.
 - Levando em consideração a dimensionalidade e a relação semântica, o doc2vec seria mais adequado. O TFIDF gera vetores com dimensões altas que até podem ser reduzidas mas que não trazem informações sobre a relação entre os documentos. Como o doc2vec consegue aprender essa relação, os documentos com conteúdo parecido estarão mais próximos no espaço ao agrupá-los. 
