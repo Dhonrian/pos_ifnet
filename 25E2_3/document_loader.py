@@ -20,7 +20,7 @@ def load_documents(directory: str):
     documents = loader.load()
 
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=100)
+        chunk_size=1000,
+        chunk_overlap=200)
     split_documents = text_splitter.split_documents(documents)
     return split_documents

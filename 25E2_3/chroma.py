@@ -1,6 +1,6 @@
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 
-def create_chroma_db(documents, persist_directory: str):
+def create_chroma_db(documents, persist_directory: str, embedding):
     """
     Create a Chroma vector store from the provided documents.
 
@@ -13,12 +13,13 @@ def create_chroma_db(documents, persist_directory: str):
     """
     db = Chroma.from_documents(
         documents,
-        persist_directory=persist_directory
+        persist_directory=persist_directory,
+        embedding=embedding,
     )
     db.persist()
     return db
 
-def load_chroma_db(persist_directory: str):
+def load_chroma_db(persist_directory: str, embedding):
     """
     Load a Chroma vector store from the specified directory.
 
@@ -28,4 +29,4 @@ def load_chroma_db(persist_directory: str):
     Returns:
         Chroma: An instance of the Chroma vector store.
     """
-    return Chroma(persist_directory=persist_directory)
+    return Chroma(persist_directory=persist_directory, embedding_function=embedding)
