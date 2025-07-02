@@ -164,14 +164,14 @@ A conversa simula um bot de texto com pergunta de um lado e a resposta do outro.
 <br>
  
 - **7.2) Explique a arquitetura do aplicativo, incluindo como o Streamlit, LLM e LangChain são utilizados.**
-R: O projeto se utiliza do Streamlit para fornecer uma interface web simples para interagir com os agentes. Quando uma pergunta é feita o LangChain decide se a pergunta é sobre a wiki ou alguma consulta ao banco para gerar algum relatório. Quando se trata sobre a wiki o LangChain utiliza o Gemini para consultar o Chroma DB que contém os embeddings dos documentos da wiki. Quando se trata de uma consulta ao banco o LangChain utiliza o Gemini para gerar a consulta SQL e executa no banco de dados SQLite.
+R: O projeto se utiliza do Streamlit para fornecer uma interface web simples para interagir com os agentes. Os arquivos `.md` da wiki são lidos e adicionados a um vectorstore chamado `Chroma`. Um esquema simples de banco é criado com duas tabelas, usuários e processos. Quando uma pergunta é feita o LangChain decide se a pergunta é sobre a wiki ou alguma consulta ao banco para gerar algum relatório. Quando se trata sobre a wiki o LangChain utiliza o Gemini para consultar o Chroma DB que contém os embeddings dos documentos. Quando se trata de uma consulta ao banco o LangChain utiliza o Gemini para gerar a consulta SQL e executa no banco de dados SQLite.
 <br>
 
 - **7.3) Implemente o aplicativo e forneça o código-fonte, junto com instruções para execução.**
 R: O código fonte está disponível no github em: https://github.com/Dhonrian/pos_ifnet/tree/main/25E2_3
 Para rodar o projeto é necessário instalar as dependências do arquivo requirements.txt, configurar a variável de ambiente no `.env` a `API_KEY` com a chave da API do Gemini.
-Antes de executar o arquivo `app.py` com o comando `streamlit run app.py` é necessária a extração do arquivo `files.zip` na pasta files e utilizar a senha fornecida nos comentários no envio do PD. 
-**A estrutura é a seguinte**:
+Antes de executar o arquivo `app.py` com o comando `streamlit run app.py` é necessária a extração do arquivo `files.zip` na pasta files e utilizar a senha **infnet** para descompactar o arquivo.<br> 
+**A estrutura de pastas segue**:
 ```
 pasta projeto/
  |
