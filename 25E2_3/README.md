@@ -1,8 +1,10 @@
 Este arquivo está disponível no github: https://github.com/Dhonrian/pos_ifnet/tree/main/25E2_3
 
+## Parte 1
+
 ### Questão 1: Explique os seguintes conceitos fundamentais dos LLMs, fornecendo exemplos práticos e diagramas onde for relevante:
 - **Pre-training**:
-R: O pré-treinamento é onde o modelo é treinado com uma grande quantidade de dados para aprender padrões da linguagem. Os modelos podem ser treinados livros, artigos, notícias e outros textos disponíveis.
+R: O pré-treinamento é onde o modelo é treinado com uma grande quantidade de dados para aprender padrões da linguagem. Os modelos podem ser treinados usando livros, artigos, notícias e outros textos disponíveis.
 - **Transfer Learning**:
 R: O transfer learning é uma técnica bastante utilizada em RNNs onde modelo pode ter como função por exemplo prever a próxima palavra de uma frase. Com essa técnica o modelo consegue passar os valores de um nó para o próximo, permitindo que ele utilize de um contexto anterior para prever o próximo valor. Redes LSTM podem ser utilizadas para transfer learning, pois elas conseguem manter o estado de memória por mais tempo, permitindo que o modelo utilize informações de contextos anteriores.
 ![lstm](assets/lstm.png)
@@ -14,11 +16,14 @@ R: Os transformers são uma arquitetura que utiliza um mecanismo de autoatençã
 ![transformer](assets/transformers.png)
 - **Attetion**:
 R: A atenção é uma ferramenta que veio das redes de convolução para ignorar ruídos e focar em partes específicas de uma determinada entrada. Para os transformers, a atenção é utilizada para entender o peso de cada palavra em relação às outras palavras na frase independente da sua posição e isso é bem útil quando o contexto é necessário para entender o sentido da frase. 
-Na imagem é possível ver que o "the animal" se refere ao "it".
+Na imagem é possível ver que o "the animal" se refere ao "it".<br>
 ![attention](assets/attention.png)
 - **Fine-tuning**:
 R: O fine-tuning é o processo de ajustar a ultima camada de um modelo pré-treinado para uma tarefa específica. Para as LLMs pode ser utilizado para ajustar o modelo para atender uma tarefa específica como entender melhor sobre um contexto jurídico ou médico. O fine-tuning é realizado com um conjunto de dados menor e mais específico.
 
+## Parte 2
+
+## Parte 3
 
 ### Questão 3:  Análise de entidades usando o modelo 'monilouise/ner_pt_br':
 R: O notebook com a análise se encontra na pasta `notebooks` no arquivo `análise_entidades.ipynb`.
@@ -36,6 +41,8 @@ R: O notebook com a análise se encontra na pasta `notebooks` no arquivo `análi
  ![wordcloud](assets/wordcloud.png)
 
 
+## Parte 4
+
 ### Questão 4: Analise os seguintes prompts e identifique por que eles poderiam gerar respostas insatisfatórias ou irrelevantes:
 - Exemplo 1: "Escreva sobre cachorros."
 - Exemplo 2: "Explique física."<br>
@@ -47,13 +54,15 @@ R: Os prompts mostrados são muito vagos e abertos e não fornecem contexto sufi
     R: **O primeiro** prompt pode ser utilizado para gerar outros prompts mais específicos, como por exemplo:
     ```
     Você é um otimizador de prompts. Gere 3 prompts específicos de níveis diferentes a partir do prompt: 'Escreva sobre cachorros.'
-
+   ```
+   A reposta do modelo poderia ser algo como:
+   ```
     - Nível 1: "Escreva um texto curto sobre as raças de cachorros mais populares."
     - Nível 2: "Escreva um artigo sobre os cuidados necessários para adotar um cachorro de grande porte."
-    - Nível 3: "Escreva uma análise sobre treinamento de cães para suporte emocional, incluindo métodos e benefícios"<br>          
+    - Nível 3: "Escreva uma análise sobre treinamento de cães para suporte emocional, incluindo métodos e benefícios"          
     ```
-    Dessa forma o modelo pode gerar respostas mais específicas e direcionadas, evitando respostas muito abertas ou vagas.<br>  
-
+    Cada prompt acima aprofunda mais no tema de uma maneira, 
+    dessa forma o modelo pode gerar respostas mais específicas e direcionadas, evitando respostas muito abertas ou vagas.<br>
     **E o segundo** poderia ser reformulado utilizando por exemplo uma persona de um professor de física e alguns exemplos:
     ```
     Você é um professor de física. Explique de forma simples e didática.
@@ -88,7 +97,26 @@ As mudanças realizadas fazem com que o modelo gere uma lista de tópicos import
 
 
 ### Questão 6: Aplique a técnica de Chain of Thought (CoT) para melhorar o prompt "Explique como funciona a energia solar.", detalhando o raciocínio necessário para que o modelo forneça uma resposta completa e coerente. Explique como a aplicação da técnica CoT melhora a resposta do modelo.
-R: 
+R: Podemos melhorar o prompt utilizando o chain of thought e few-shot learning.
+
+```
+Prompt: Explique passo a passo como funciona energia éolica.
+Resposta: 
+1. A energia eólica é gerada a partir do movimento do vento.
+2. As turbinas eólicas convertem o movimento do vento em energia mecânica que é então convertida em energia elétrica.
+3. É mais comum em regiões com ventos fortes e constantes.
+
+Prompt: Explique passo a passo como funciona a energia termoelétrica.
+Resposta:
+1. A energia termoelétrica é gerada a partir do calor produzido pela queima de combustíveis fósseis.
+2. As usinas termoelétricas convertem o calor em energia mecânica, que é então convertida em energia elétrica.
+3. É mais comum em regiões com fácil acesso a combustíveis fósseis, como carvão ou gás natural.
+
+
+Prompt: Explique passo a passo como funciona a energia solar.
+Resposta:
+```
+A técnica do CoT melhora a resposta do modelo por que consegue guiar o pensamento em etapas lógicas simulando um raciocínio humano. Ao guiar com exemplos anteriores, o modelo consegue entender melhor o que é esperado e a estrutura da resposta, resultando numa explicação melhor do prompt original "Explique como funciona a energia solar.".
 
 
 ## Parte 5
