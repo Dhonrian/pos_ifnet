@@ -82,6 +82,7 @@ R: Os prompts mostrados são muito vagos e abertos e não fornecem contexto sufi
     O primeiro prompt pode ser entendido de diversas maneiras e pode ser sobre raça, tamanho, treinamento, produtos. 
     O segundo é ainda mais aberto já que na física existem diferentes áreas de diferentes complexidades.
 <br>
+
 - **4.1) Reformule cada prompt utilizando técnicas de engenharia de prompts para torná-los mais específicos e direcionados.**
     R: **O primeiro** prompt pode ser utilizado para gerar outros prompts mais específicos, como por exemplo:
     ```
