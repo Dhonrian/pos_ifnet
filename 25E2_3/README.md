@@ -23,6 +23,38 @@ R: O fine-tuning é o processo de ajustar a ultima camada de um modelo pré-trei
 
 ## Parte 2
 
+### Questão 2: Acesse os quizzes dos capítulos 1, 2 e 3 do curso de NLP da Hugging Face através do link: Curso de NLP.
+- **2.1) Resolva os quizzes e capture screenshots dos resultados.**
+- **2.2) Anexe as screenshots a esta avaliação e explique brevemente os conceitos abordados em cada quiz.**
+<br>
+
+**Quiz 1**
+
+![Quiz 1](assets/quiz1.webp)
+
+O primeiro capitulo é uma introdução ao conceito de LLMs, NLP e Transformers. Ele aborda os usos de uma NLP e o poder das LLMs, bem como fala sobre alucinações, viés e limitações dos modelos. Sobre transformers é explicado a função pipeline pra usar modelos pré-treinados e a arquitetura de um transformer. 
+Ele ainda fala sobre os modelos mais populares e sua principal função como o BERT pra classificação ou o GPT para geração de texto.
+
+
+**Quiz 2**
+![Quiz 2-1](assets/quiz2-1.png)
+![Quiz 2-2](assets/quiz2-2.png)
+![Quiz 2-3](assets/quiz2-3.png)
+![Quiz 2-4](assets/quiz2-4.png)
+![Quiz 2-5](assets/quiz2-5.png)
+![Quiz 2-6](assets/quiz2-6.png)
+![Quiz 2-7](assets/quiz2-7.png)
+![Quiz 2-8](assets/quiz2-8.png)
+![Quiz 2-9](assets/quiz2-9.png)
+![Quiz 2-10](assets/quiz2-10.png)
+
+O segundo capitulo aborda uma parte mais prática dos Transformers, como os pipelines funcionam e como utilizar os modelos pré-treinados da Hugging Face. O quiz aborda conceitos de tokenização, AutoModel e AutoTokenizer.
+
+**Quiz 3**
+![Quiz 3](assets/quiz3.webp)
+
+O terceiro fala sobre o fine-tuning de modelos pré-treinados e como isso pode ser feito com o Trainer do Hugging Face. O quiz pergunta sobre os problemas que podem ocorrer durante o fine-tuning, como overfitting e underfitting, além de falar sobre o uso de padding e truncamento pra lidar com tamanhos diferentes de entradas. 
+
 ## Parte 3
 
 ### Questão 3:  Análise de entidades usando o modelo 'monilouise/ner_pt_br':
