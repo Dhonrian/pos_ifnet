@@ -2,6 +2,7 @@ streamlit
 langchain-google-genai
 langchain-community
 langchain-chroma>=0.1.2
+langchain_core
 python-dotenv
 unstructured[md]
 opentelemetry-proto==1.34.1
