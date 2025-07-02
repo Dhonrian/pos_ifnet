@@ -1,5 +1,5 @@
 import streamlit as st
-from agent import get_answer
+from agent import get_agent_answer
 
 st.set_page_config(page_title="Wiki Geopixel", layout="wide")
 st.title("Wiki Geopixel")
@@ -68,14 +68,14 @@ if enviar and pergunta.strip():
     st.session_state.messages.append({"role": "user", "content": pergunta})
     
     with st.spinner("Buscando..."):
-        resposta = get_answer(pergunta)
-        
+        resposta = get_agent_answer(pergunta)
+
         st.session_state.messages.append({
             "role": "bot",
-            "content": resposta["result"],
-            "sources": resposta["source_documents"]
+            "content": resposta.get("result", "Erro ao obter resposta."),
+            "sources": resposta.get("source_documents", [])
         })
-        
+
         st.rerun()
         
 elif enviar:

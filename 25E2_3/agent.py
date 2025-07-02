@@ -1,69 +1,52 @@
 from dotenv import load_dotenv
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from chroma import create_chroma_db, load_chroma_db
-from document_loader import load_documents
-from langchain.chains import RetrievalQA
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.prompts import PromptTemplate
+from langchain_core.tools import Tool
+from langchain.agents import initialize_agent
+from langchain.agents.agent_types import AgentType
+from qa_agent import get_answer
+from sql_agent import get_sql_answer
 import os
 
 load_dotenv()
-
 API_KEY = os.getenv("API_KEY")
-if not API_KEY:
-    raise ValueError("chave não encontrada.")
 
-
-embedding_model = GoogleGenerativeAIEmbeddings(
-    model="models/embedding-001",
-    google_api_key=API_KEY)
-
-if not os.path.exists("chroma_db"):
-    docs = load_documents("files")
-    db = create_chroma_db(docs, persist_directory="chroma_db", embedding=embedding_model)
-else:
-    db = load_chroma_db(persist_directory="chroma_db", embedding=embedding_model)
-
-chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=API_KEY)
-
-template = """
-Você é um programador da Geopixel. 
-
-Baseado nas informações contidas na wiki responda a pergunta do usuário de forma clara e objetiva.
-Se a pergunta não puder ser respondida com as informações disponíveis, informe que não é possível responder
-a pergunta e para que procure um desenvolvedor como o Iuri.
-
-Contexo: 
-{context}
-
-Pergunta:
-{question}
-
-Resposta:
-"""
-
-prompt = PromptTemplate(
-    template=template,
-    input_variables=["context", "question"]
+chat_model = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash",
+    google_api_key=API_KEY
 )
 
-# Função para criar ou carregar o banco Chroma
-def get_vectorstore():
-    if not os.path.exists("chroma_db"):
-        docs = load_documents("files")
-        return create_chroma_db(docs, persist_directory="chroma_db", embedding=embedding_model)
-    else:
-        return load_chroma_db(persist_directory="chroma_db", embedding=embedding_model)
+rag_tool = Tool.from_function(
+    name="wiki",
+    func=lambda question: get_answer(question),
+    description="Use esta ferramenta para responder perguntas sobre a wiki, funcionalidades e sobre os sistemas NÃO deve ser usada para consultas ao banco de dados ou descobrir nome de tabelas."
+)
 
-# Função principal de resposta
-def get_answer(question: str):
-    db = get_vectorstore()
-    qa = RetrievalQA.from_chain_type(
-        llm=chat_model,
-        retriever=db.as_retriever(search_kwargs={"k": 3}),
-        chain_type="stuff",
-        chain_type_kwargs={"prompt": prompt},
-        return_source_documents=True
-    )
-    response = qa.invoke({"query": question})
-    return response
+sql_tool = Tool.from_function(
+    name="sql",
+    func=lambda question: get_sql_answer(question),
+    description="Use esta ferramenta para responder perguntas sobre dados, relatórios ou formulários de processos."
+)
+
+tools = [rag_tool, sql_tool]
+
+multi_tool_agent = initialize_agent(
+    tools=tools,
+    llm=chat_model,
+    agent_type=AgentType.OPENAI_FUNCTIONS,
+    verbose=True
+)
+
+def get_agent_answer(question: str):
+    result = multi_tool_agent.invoke({"input": question})
+
+    resposta_final = result["output"]
+    source_docs = []
+
+    for tool, out in result.get("intermediate_steps", []):
+        if tool.name == "wiki" and isinstance(out, dict):
+            source_docs = out.get("source_documents", [])
+
+    return {
+        "result": resposta_final,
+        "source_documents": source_docs
+    }
