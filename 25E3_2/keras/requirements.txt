@@ -1,0 +1,12 @@
+pandas
+geopandas
+keras
+scikit-learn
+matplotlib
+seaborn
+jupyter
+tensorflow
+openpyxl
+contextily
+statsmodels
+fastapi

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eita</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="columns is-gapless full-height">
+    <!-- Sidebar -->
+    <div class="column is-narrow has-background-grey-darker p-5 sidebar">
+      <h3 class="title is-5 has-text-white mb-4">Olá, Usuário</h3>
+
+      <button id="addPointBtn" class="button is-link is-fullwidth mb-3">Novo ponto</button>
+      <button id="clearPointsBtn" class="button is-danger is-fullwidth">Limpar mapa</button>
+    </div>
+
+    <!-- Mapa -->
+    <div id="map" class="column"></div>
+  </div>
+
+  <div class="modal" id="info-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Informações do ponto</p>
+        <button class="delete" aria-label="close" id="close-info-modal"></button>
+      </header>
+      <section class="modal-card-body">
+        <div id="info-content"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Modal Bulma -->
+  <div class="modal" id="point-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Nova previsão</p>
+        <button class="delete" aria-label="close" id="close-modal"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Área Terreno</label>
+          <div class="control">
+            <input id="area_terreno" class="input is-small" type="text" placeholder="250" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Área Construída</label>
+          <div class="control">
+            <input id="area_construida" class="input is-small" type="text" placeholder="150" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Oferta</label>
+          <div class="control">
+            <input id="oferta" class="input is-small" type="text" id="zoom" placeholder="450000" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Tipo de via</label>
+          <div class="control">
+            <div class="select is-fullwidth is-small">
+              <select id="tipoVia">
+                <option>Via principal</option>
+                <option>Via secundária</option>
+                <option>Outras vias</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Itbi/Oferta</label>
+          <div class="control">
+            <div class="select is-fullwidth is-small">
+              <select id="itbiOferta">
+                <option default>ITBI</option>
+                <option>Oferta</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Zona Homogenea</label>
+          <div class="control">
+            <input class="input is-small" type="text" id="zonaHomogenea" placeholder="Zona Homogenea" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Pavimentado?</label>
+          <label class="checkbox">
+            <input type="checkbox" id="pavimentado"> Sim </input>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="label">Corredor Comercial</label>
+          <label class="checkbox">
+            <input type="checkbox" id="corredorComercial"> Sim </input>
+          </label>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button id="btnEnviar" class="button is-success">Prever m²</button>
+        <button class="button" id="cancelar">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
